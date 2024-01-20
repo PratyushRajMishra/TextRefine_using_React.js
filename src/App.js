@@ -3,6 +3,11 @@ import './App.css';
 import TextForm from './components/TextForm';
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
+import About from './components/About'; // Import the About component
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Routes } from "react-router";
+
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -18,7 +23,6 @@ function App() {
     }, 1500);
   }
 
-
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
@@ -33,12 +37,17 @@ function App() {
 
   return (
     <div>
-      <Navbar mode={mode} toggleMode={toggleMode} />
-      {/* Corrected prop name from "alert" to "alertText" */}
-      <Alert alertText= {alert} />
-      <div className='container my-5'>
-        <TextForm showAlert={showAlert} mode={mode} />
-      </div>
+      <Router>
+        <Navbar mode={mode} toggleMode={toggleMode} />
+        <Alert alertText={alert} />
+        <div className='container my-5'>
+        <Routes>
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} />} />
+        </Routes>
+
+        </div>
+      </Router>
     </div>
   );
 }
