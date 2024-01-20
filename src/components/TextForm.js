@@ -7,13 +7,13 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
-    props.showAlert("Converted to Upper case!", "success");
+    props.showAlert("Chnaged to Upper case!", "success");
   };
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
-    props.showAlert("Converted to lower case!", "success");
+    props.showAlert("Changed to lower case!", "success");
   };
 
   const handleClearClick = () => {
@@ -25,19 +25,19 @@ export default function TextForm(props) {
   const handleTitleClick = () => {
     let newText = toTitleCase(text);
     setText(newText);
-    props.showAlert("Converted to Tittle case!", "success");
+    props.showAlert("Changed to Tittle case!", "success");
   };
 
   const handleSentenceClick = () => {
     let newText = toSentenceCase(text);
     setText(newText);
-    props.showAlert("Converted to Sentence case!", "success");
+    props.showAlert("Changed to Sentence case!", "success");
   };
 
   const handleEmailExtractClick = () => {
     let extractedEmails = extractEmails(text);
     setExtractedEmails(extractedEmails);
-    props.showAlert("Extracted email show below", "success");
+    props.showAlert("Email extraced!", "success");
   };
 
   const handleCopyTextClick = () => {
@@ -47,7 +47,7 @@ export default function TextForm(props) {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    props.showAlert("Text copied", "success");
+    props.showAlert("Text copied!", "success");
   };
 
   const handleOnChange = (event) => {
@@ -80,7 +80,7 @@ export default function TextForm(props) {
   return (
     <div>
       <div className="container" style={{color: props.mode==='dark'?'white':'#343a40'}}>
-        <h3>Enter the text here to analyze...</h3>
+        <h6>To use textUtils, please write or paste your content into the box below.</h6>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -91,7 +91,7 @@ export default function TextForm(props) {
             rows="12"
           ></textarea>
         </div>
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-success my-2 mx-2"
           onClick={handleUpClick}
@@ -99,7 +99,7 @@ export default function TextForm(props) {
           UPPERCASE
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-primary mx-6 my-1"
           onClick={handleLoClick}
@@ -107,7 +107,7 @@ export default function TextForm(props) {
           lowercase
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-warning mx-2 my-1"
           onClick={handleTitleClick}
@@ -115,7 +115,7 @@ export default function TextForm(props) {
           Title Case
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-secondary mx-2 my-2"
           onClick={handleSentenceClick}
@@ -123,7 +123,7 @@ export default function TextForm(props) {
           Sentence case
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-info mx-2 my-2"
           onClick={handleEmailExtractClick}
@@ -131,7 +131,7 @@ export default function TextForm(props) {
           Extract Emails
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-warning mx-2 my-2"
           onClick={removeExtraSpaces}
@@ -139,7 +139,7 @@ export default function TextForm(props) {
           Remove Extra Spaces
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-dark mx-2 my-2"
           onClick={handleCopyTextClick}
@@ -147,7 +147,7 @@ export default function TextForm(props) {
           Copy Text
         </button>
 
-        <button
+        <button disabled={text.length===0}
           type="submit"
           className="btn btn-danger mx-2 my-2"
           onClick={handleClearClick}
@@ -155,16 +155,16 @@ export default function TextForm(props) {
           Clear text
         </button>
       </div>
-      <div className="container my-2 mx-2" style={{color: props.mode==='dark'?'white':'black'}}>
+      <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h2><b>Summary of the text-</b></h2>
         <p>
-          {text.split(' ').length} words and {text.length} letters
+          {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} letters.
         </p>
-        <p>{0.008 * text.split(' ').length} Minutes read</p>
+        <p>{0.008 * text.split(' ').filter((element)=>{return element.length!==0}).length} Minutes to read.</p>
         <h4><b>Preview</b></h4>
-        <p>{text.length>0?text:"Enter something in the textbox above to preview it here...."}</p>
+        <p>{text.length>0?text:"Nothing to preview!"}</p>
       </div>
-      <div className="container my-2 mx-2" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
+      <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
         <h4><b>Extracted Emails:-</b></h4>
         {extractedEmails.length > 0 ? (
           <ul>
@@ -173,7 +173,7 @@ export default function TextForm(props) {
             ))}
           </ul>
         ) : (
-          <p>Email id not found in your text..</p>
+          <p>No Email found!</p>
         )}
       </div>
 

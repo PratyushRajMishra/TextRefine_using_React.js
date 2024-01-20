@@ -18,7 +18,13 @@
   font-size: large;
 }
 
+.accordion-button::after{
+  filter: invert(1);
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+

@@ -13,7 +13,7 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <Link className="nav-link" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">About</Link>
@@ -22,14 +22,6 @@ export default function Navbar(props) {
               <Link className="nav-link" to="/">Contact</Link>
             </li>
           </ul>
-          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`} style={{ marginRight: '20px' }}>
-              <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Redmode</label>
-          </div>
-          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`} style={{ marginRight: '20px' }}>
-              <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Bluemode</label>
-          </div>
           <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`} style={{ marginRight: '20px' }}>
               <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
               <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Darkmode</label>
