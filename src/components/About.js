@@ -74,7 +74,7 @@ export default function About(props) {
             By effortlessly eliminating unnecessary spaces, TextUtils ensures a tidy layout, saving you valuable time and enhancing 
             the overall aesthetic of your text. Whether you're a student striving for a polished essay or a professional refining a document, 
             TextUtils simplifies the process, making text cleanup a swift and stress-free experience. 
-            Optimize your content effortlessly with TextUtils and enjoy a clutter-free, professional presentation every time.>
+            Optimize your content effortlessly with TextUtils and enjoy a clutter-free, professional presentation every time.
             </div>
           </div>
         </div>
