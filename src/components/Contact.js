@@ -9,11 +9,11 @@ export default function Contact(props) {
   return (
     <div className='container' style={{color: props.mode ==='dark'?'white':'#343a40',}}>
       <h1 className='mb-2'><strong>Get in touch with..</strong></h1>
-      <p>We value your feedback and inquiries at TextUtils, as we strive to enhance your experience with our app. Whether you have 
+      <p>We value your feedback and inquiries at TextRefine, as we strive to enhance your experience with our app. Whether you have 
         questions about specific features, encounter any issues, or simply want to share your thoughts, our dedicated support team 
         is here to assist you. Feel free to reach out to us using the contact form below, and we'll get back to you promptly. 
-        Your input is crucial in helping us improve and tailor TextUtils to meet your needs. Thank you for choosing 
-        TextUtils—we look forward to hearing from you and ensuring that your text processing endeavors are seamless and efficient.</p>
+        Your input is crucial in helping us improve and tailor TextRefine to meet your needs. Thank you for choosing 
+        TextRefine—we look forward to hearing from you and ensuring that your text processing endeavors are seamless and efficient.</p>
       <div className="row row-cols-1 row-cols-md-3 g-4 my-3">
         <div className="col">
           <div className="card h-100 d-flex align-items-center justify-content-center" style={myStyle}>

@@ -80,7 +80,7 @@ export default function TextForm(props) {
   return (
     <div>
       <div className="container" style={{color: props.mode==='dark'?'white':'#343a40'}}>
-        <h6>To use textUtils, please write or paste your content into the box below.</h6>
+        <h6>To use TextRefine, please write or paste your content into the box below.</h6>
         <div className="mb-3">
           <textarea
             className="form-control"
